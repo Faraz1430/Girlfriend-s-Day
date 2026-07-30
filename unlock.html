@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Unlock The Treasure</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+body{
+    opacity:1;
+    transition:opacity 0.6s ease;
+
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #8a6240 0%,
+        #6b472b 50%,
+        #3d2618 100%
+    );
+}
+body.fade-out{
+    opacity:0;
+}
+@keyframes fadeInPage{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+.box{
+    width:550px;
+
+    background:
+radial-gradient(
+    circle at 20% 20%,
+    rgba(255,255,255,0.25),
+    transparent 40%
+),
+linear-gradient(
+    #f2dfb4,
+    #e8d0a1
+);
+
+    padding:50px;
+
+    border-radius:8px;
+
+    border:2px solid rgba(120,85,50,.2);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+
+    text-align:center;
+
+    position:relative;
+}
+
+h1{
+    font-family:'Caveat',cursive;
+    font-size:3.5rem;
+    color:#5b3b23;
+}
+
+input{
+    width:280px;
+
+    padding:14px;
+
+    background:#f7e8c5;
+
+    border:2px solid rgba(90,60,30,.2);
+
+    border-radius:5px;
+
+    color:#4b3621;
+
+    font-size:1rem;
+
+    text-align:center;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+
+    background:
+    linear-gradient(
+        #7a4f2d,
+        #5b3b23
+    );
+
+    color:white;
+
+    border:none;
+    border-radius:30px;
+
+    cursor:pointer;
+
+    position:relative;
+    overflow:hidden;
+
+    transition:all .35s ease;
+}
+
+button:hover{
+    transform:
+        translateY(-4px)
+        scale(1.05);
+
+    box-shadow:
+        0 0 20px rgba(140,90,50,.35),
+        0 10px 25px rgba(0,0,0,.2);
+}
+
+button::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:60%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transition:.6s;
+}
+
+button:hover::before{
+    left:140%;
+}
+.key{
+    font-size:4rem;
+    margin-bottom:15px;
+
+    animation:swing 4s ease-in-out infinite;
+}
+
+@keyframes swing{
+    0%,100%{
+        transform:rotate(-8deg);
+    }
+
+    50%{
+        transform:rotate(8deg);
+    }
+}
+.title-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.key{
+    font-size:2.8rem;
+
+    animation:swing 4s ease-in-out infinite;
+
+    transform-origin:center;
+}
+
+@keyframes swing{
+    0%,100%{
+        transform:rotate(-8deg);
+    }
+
+    50%{
+        transform:rotate(8deg);
+    }
+}
+
+h1{
+    font-family:'Caveat',cursive;
+    font-size:3.5rem;
+    color:#5b3b23;
+}
+.box::before,
+.box::after{
+    content:"❦";
+    position:absolute;
+    font-size:4rem;
+    color:rgba(120,85,50,0.15);
+    font-family:serif;
+}
+
+.box::before{
+    top:20px;
+    left:25px;
+}
+
+.box::after{
+    bottom:20px;
+    right:25px;
+}
+.clue{
+    margin:15px 0 25px;
+
+    font-family:'Caveat', cursive;
+
+    font-size:2rem;
+
+    color:#6b3e26;
+
+    text-shadow:
+        0 1px 2px rgba(255,255,255,.3);
+
+    opacity:0.95;
+}
+</style>
+</head>
+<body>
+<div class="box">
+    <div class="title-row">
+    <div class="key">🗝️</div>
+    <h1>The Final Lock</h1>
+</div>
+    <p class="clue">
+    ✦ The key was hidden somewhere in our story✦
+</p>
+    <input
+        type="password"
+        id="password"
+        placeholder="Hint: your nickname..."
+    >
+
+    <br>
+
+    <button onclick="checkPassword()">
+        Reveal The Treasure ❤️
+    </button>
+
+</div>
+
+<script>
+
+function checkPassword(){
+
+    const pass =
+        document.getElementById("password")
+        .value
+        .toLowerCase();
+
+    if(pass === "rasgulla" || pass === "rasgulle"){
+
+    document.querySelector("button").style.transform = "scale(1.08)";
+    document.querySelector("button").style.boxShadow =
+        "0 0 30px rgba(255,220,150,.8)";
+
+    setTimeout(() => {
+        document.body.classList.add("fade-out");
+    }, 200);
+
+    setTimeout(() => {
+        window.location.href = "treasure.html";
+    }, 800);
+}
+    else{
+        alert("Wrong password, mere rasgulle❤️");
+    }
+
+}
+
+</script>
+
+</body>
+</html>

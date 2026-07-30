@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Letter For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #8a6240 0%,
+        #6b472b 50%,
+        #3d2618 100%
+    );
+}
+
+.container{
+    text-align:center;
+}
+
+h1{
+    color:#f3ddc1;
+    font-size:4rem;
+    font-family:'Caveat',cursive;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    color:#e9d3b4;
+    font-size:1.2rem;
+}
+
+.envelope{
+    width:450px;
+    height:300px;
+    margin:50px auto;
+    position:relative;
+}
+
+.envelope::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        #e8c89a,
+        #d6ad74
+    );
+
+    border-radius:10px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.3);
+}
+
+.flap{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:225px solid transparent;
+    border-right:225px solid transparent;
+    border-top:160px solid #c9995b;
+
+    z-index:2;
+}
+
+.seal{
+    position:absolute;
+    left:50%;
+    top:58%;
+
+    transform:translate(-50%,-50%);
+
+    width:95px;
+    height:95px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle at 30% 30%,
+        #a33b2b,
+        #6b1d14
+    );
+
+    border:4px solid rgba(255,220,180,0.15);
+
+    color:#f6d7b0;
+    font-size:1.4rem;
+    font-weight:bold;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.4);
+
+    transition:.3s;
+
+    z-index:3;
+}
+
+.seal:hover{
+    transform:
+    translate(-50%,-50%)
+    scale(1.08);
+
+    box-shadow:
+        0 0 20px rgba(140,60,40,0.5);
+}
+
+.seal:hover{
+    transform:
+    translate(-50%,-50%)
+    scale(1.12);
+
+    box-shadow:
+        0 0 25px rgba(255,80,80,.7);
+}
+
+.hint{
+    color:#f3ddc1;
+    font-style:italic;
+}
+.dust-container{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.dust{
+    position:absolute;
+    width:8px;
+    height:8px;
+
+    background:rgba(255,245,220,0.8);
+
+    border-radius:50%;
+
+    filter:blur(1px);
+
+    animation:floatDust linear infinite;
+}
+.dust:nth-child(1){
+    left:5%;
+    animation-duration:12s;
+}
+
+.dust:nth-child(2){
+    left:15%;
+    animation-duration:16s;
+}
+
+.dust:nth-child(3){
+    left:28%;
+    animation-duration:10s;
+}
+
+.dust:nth-child(4){
+    left:40%;
+    animation-duration:14s;
+}
+
+.dust:nth-child(5){
+    left:55%;
+    animation-duration:18s;
+}
+
+.dust:nth-child(6){
+    left:70%;
+    animation-duration:11s;
+}
+
+.dust:nth-child(7){
+    left:85%;
+    animation-duration:15s;
+}
+
+.dust:nth-child(8){
+    left:95%;
+    animation-duration:13s;
+}
+
+/* different positions */
+
+.dust:nth-child(odd){
+    width:3px;
+    height:3px;
+}
+
+.dust:nth-child(even){
+    width:6px;
+    height:6px;
+}
+
+@keyframes floatDust{
+
+    from{
+        transform:
+            translateY(100vh)
+            translateX(0px);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    to{
+        transform:
+            translateY(-100px)
+            translateX(30px);
+
+        opacity:0;
+    }
+}
+.film-grain{
+    position:fixed;
+    inset:0;
+
+    background-image:
+        radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+
+    background-size:4px 4px;
+
+    opacity:.25;
+
+    pointer-events:none;
+}
+body{
+    opacity:1;
+    transition:opacity 0.8s ease;
+}
+
+body.fade-out{
+    opacity:0;
+}
+
+.decor{
+    position:fixed;
+    pointer-events:none;
+    opacity:.7;
+}
+
+.rose{
+    top:15%;
+    left:15%;
+    font-size:2rem;
+    transform:rotate(-25deg);
+}
+
+.key{
+    bottom:18%;
+    right:15%;
+    font-size:2.2rem;
+    transform:rotate(15deg);
+}
+
+.spark{
+    top:25%;
+    right:20%;
+    animation:float 4s ease-in-out infinite;
+}
+
+.spark2{
+    bottom:25%;
+    left:20%;
+    animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+</style>
+</head>
+<body>
+<div class="decor rose">🌹</div>
+<div class="decor key">🗝️</div>
+<div class="decor spark">📜</div>
+<div class="decor spark2">🕯️</div>
+<div class="film-grain"></div>
+<div class="dust-container">
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+</div>
+<div class="container">
+
+    <h1>For Someone Very Special</h1>
+
+    <p class="subtitle">
+        A journey created just for you awaits...✨
+    </p>
+
+    <div class="envelope">
+
+        <div class="flap"></div>
+
+        <a href="memories.html" class="seal">
+            ✦
+        </a>
+
+    </div>
+
+    <p class="hint">
+        Break the seal to continue...
+    </p>
+
+</div>
+<script>
+document.querySelector('.seal').addEventListener('click', function(e){
+
+    e.preventDefault();
+
+    const envelope = document.querySelector('.envelope');
+
+    envelope.style.transition = 'all 0.8s ease';
+    envelope.style.transform = 'scale(1.15)';
+    envelope.style.opacity = '0';
+
+    document.body.classList.add('fade-out');
+
+    setTimeout(()=>{
+        window.location.href='memories.html';
+    },800);
+
+});
+</script>
+</body>
+</html>
